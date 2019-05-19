@@ -7,29 +7,29 @@
 		<script type="text/javascript" src="libs/angular/angular.js"></script>
 		<script>
 		angular.module('demo-app', [])
-		.controller('mainCtrl', ['$scope','$timeout', function ($scope, $timeout) {
-			var threeSecPromise = $timeout(function() {
-				return $scope.answer; 
-			},3000);
+			.controller('mainCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
+				var threeSecPromise = $timeout(function () {
+					return $scope.answer; 
+				}, 3000);
 			
-			threeSecPromise.then(function(val) {
-				if(val == 39){
-					$scope.result="맞았어요.";
-				}else{
-					$scope.result="틀렸어요.";
-				}
-			},function () {
-				$scope.result="너무 어려웠나요?";
-			});
+				threeSecPromise.then(function (val) {
+					if (val == 39) {
+						$scope.result = '맞았어요.';
+					} else {
+						$scope.result = '틀렸어요.';
+					}
+				}, function () {
+					$scope.result = '너무 어려웠나요?';
+				});
 
-			threeSecPromise.finally(function() {
-				$scope.info = "다시 시작하려면 refresh 해주세요."
-			});
+				threeSecPromise.finally(function () {
+					$scope.info = '다시 시작하려면 refresh 해주세요.';
+				});
       
-      $scope.giveUp = function() {
-      	$timeout.cancel(threeSecPromise);
-      };
-		}]);
+      	$scope.giveUp = function () {
+      		$timeout.cancel(threeSecPromise);
+      	};
+			}]);
 		</script>
 	</head>
 <body ng-controller="mainCtrl">
