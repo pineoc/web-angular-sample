@@ -1,25 +1,43 @@
 <!doctype html>
 <html ng-app="app">
-  <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
-    <script src="components.js"></script>
-    <script src="app.js"></script>
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css">
-  </head>
-  <body>
-    <tabs>
-      <pane title="Localization">
-        <span>Date: {{ '2012-04-01' | date:'fullDate' }}</span><br>
-        <span>Currency: {{ 123456 | currency }}</span><br>
-        <span>Number: {{ 98765.4321 | number }}</span><br>
-      </pane>
-      <pane title="Pluralization">
-        <div ng-controller="BeerCounter">
-          <div ng-repeat="beerCount in beers">
-            <ng-pluralize count="beerCount" when="beerForms"></ng-pluralize>
-          </div>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+  <script src="components.js"></script>
+  <script src="app.js"></script>
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css">
+</head>
+
+<body>
+  <tabs>
+    <pane title="Localization">
+      <span>Date: {{ '2012-04-01' | date:'fullDate' }}</span>
+      <br>
+      <span>Currency: {{ 123456 | currency }}</span>
+      <br>
+      <span>Number: {{ 98765.4321 | number }}</span>
+      <br>
+    </pane>
+    <pane title="Pluralization">
+      <div ng-controller="BeerCounter">
+        <div ng-repeat="beerCount in beers">
+          <ng-pluralize count="beerCount" when="beerForms"></ng-pluralize>
         </div>
-      </pane>
-    </tabs>
-  </body>
+        <button ng-click="reverseBeerService()">Reverse Beer via Service</button>
+      </div>
+    </pane>
+    <pane title="Time Test">
+      <span>Now: {{'15:00:00' | date: 'HH:mm:ss'}}</span>
+    </pane>
+  </tabs>
+  <tabs>
+    <pane title="Test Tab pane1">
+      <span>test pane1</span>
+    </pane>
+    <pane title="Test Tab pane2">
+      <span>test pane2</span>
+    </pane>
+  </tabs>
+</body>
+
 </html>

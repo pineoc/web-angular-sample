@@ -1,7 +1,10 @@
-angular.module('app', ['components'])
-.controller('BeerCounter', function($scope, $locale) {
+var app = angular.module('app', ['components']);
+
+app.controller('BeerCounter', function($scope, $locale, beertrickService) {
   $scope.beers = [0, 1, 2, 3, 4, 5, 6];
-  console.log($locale);
+  $scope.reverseBeerService = function() {
+		$scope.beers = beertrickService.reverse($scope.beers);  
+	};
   if ($locale.id === 'en-us') {
     $scope.beerForms = {
       0: 'no beers',
@@ -16,4 +19,9 @@ angular.module('app', ['components'])
       other: '{} pív'
     };
   }
+});
+app.service('beertrickService', function() {
+	this.reverse = function(beers) {
+		return beers.reverse();
+	};
 });

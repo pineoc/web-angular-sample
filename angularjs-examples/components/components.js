@@ -40,9 +40,7 @@ angular.module('components', [])
       link: function(scope, element, attrs, tabsController) {
         tabsController.addPane(scope);
       },
-      template:
-        '<div class="tab-pane" ng-class="{active: selected}" ng-transclude>' +
-        '</div>',
+      templateUrl: 'pane.tpl.html',
       replace: true
     };
   });
