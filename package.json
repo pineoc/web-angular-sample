@@ -9,12 +9,11 @@
   "author": "Jeado Ko",
   "license": "월간 웹",
   "devDependencies": {
-    "grunt": "~0.4.5",
-    "gulp-webserver": "^0.3.4"
+    "gulp-webserver": "^0.9.1"
   },
   "dependencies": {
-    "browser-sync": "^1.5.8",
-    "grunt": "~0.4.5"
+    "browser-sync": "^2.26.5",
+    "gulp": "^4.0.2"
   },
   "repository": {
     "type": "git",
