@@ -14,6 +14,6 @@ angular.module('mobileSample', ['ngTouch','ngRoute','mobile-angular-ui'])
   var i=1, arr=[];
   for (; i <= 30; i++) {
    arr.push({title:i+"회 연재"});
-  };
+  }
   $scope.tutorials = arr;
  }]);
