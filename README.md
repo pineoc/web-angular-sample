@@ -1,5 +1,7 @@
 # AngularJS 데모 웹 어플리케이션
 
+@jeado(고재도)님의 저장소를 fork하여 내용을 채워보는 저장소입니다.
+
 ## 라이브러리 버전
 
 | libs         | version |
