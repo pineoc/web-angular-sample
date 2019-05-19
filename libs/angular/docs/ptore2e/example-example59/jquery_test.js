@@ -1,9 +1,13 @@
-describe("module:ng.provider:$interpolateProvider", function() {
+describe("", function() {
+  var rootEl;
   beforeEach(function() {
-    browser.get("./examples/example-example59/index-jquery.html");
+    rootEl = browser.rootEl;
+    browser.get("examples/example-example59/index-jquery.html");
   });
-
-it('should interpolate binding with custom symbols', function() {
-  expect(element(by.binding('demo.label')).getText()).toBe('This binding is brought you by // interpolation symbols.');
-});
+  
+  it('should check ng-click', function() {
+    expect(element(by.binding('count')).getText()).toMatch('0');
+    element(by.css('button')).click();
+    expect(element(by.binding('count')).getText()).toMatch('1');
+  });
 });

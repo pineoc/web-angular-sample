@@ -3,25 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>Example - example-example104-debug</title>
-  <link href="style.css" rel="stylesheet" type="text/css">
   
 
   <script src="../../../angular.js"></script>
+  <script src="../../../angular-touch.js"></script>
   <script src="script.js"></script>
   
 
   
 </head>
-<body ng-app="">
-  <div class="show-scope-demo">
-  <div ng-controller="GreetCtrl">
-    Hello {{name}}!
-  </div>
-  <div ng-controller="ListCtrl">
-    <ol>
-      <li ng-repeat="name in names">{{name}} from {{department}}</li>
-    </ol>
-  </div>
-</div>
+<body ng-app="ngClickExample">
+    <button ng-click="count = count + 1" ng-init="count=0">
+    Increment
+  </button>
+  count: {{ count }}
 </body>
 </html>

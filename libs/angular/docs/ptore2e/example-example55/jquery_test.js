@@ -1,35 +1,22 @@
-describe("module:ng.filter:limitTo", function() {
+describe("", function() {
+  var rootEl;
   beforeEach(function() {
-    browser.get("./examples/example-example55/index-jquery.html");
+    rootEl = browser.rootEl;
+    browser.get("examples/example-example55/index-jquery.html");
   });
+  
+  it('should check ng-class', function() {
+    expect(element(by.css('.base-class')).getAttribute('class')).not.
+      toMatch(/my-class/);
 
-  var numLimitInput = element(by.model('numLimit'));
-  var letterLimitInput = element(by.model('letterLimit'));
-  var limitedNumbers = element(by.binding('numbers | limitTo:numLimit'));
-  var limitedLetters = element(by.binding('letters | limitTo:letterLimit'));
+    element(by.id('setbtn')).click();
 
-  it('should limit the number array to first three items', function() {
-    expect(numLimitInput.getAttribute('value')).toBe('3');
-    expect(letterLimitInput.getAttribute('value')).toBe('3');
-    expect(limitedNumbers.getText()).toEqual('Output numbers: [1,2,3]');
-    expect(limitedLetters.getText()).toEqual('Output letters: abc');
-  });
+    expect(element(by.css('.base-class')).getAttribute('class')).
+      toMatch(/my-class/);
 
-  it('should update the output when -3 is entered', function() {
-    numLimitInput.clear();
-    numLimitInput.sendKeys('-3');
-    letterLimitInput.clear();
-    letterLimitInput.sendKeys('-3');
-    expect(limitedNumbers.getText()).toEqual('Output numbers: [7,8,9]');
-    expect(limitedLetters.getText()).toEqual('Output letters: ghi');
-  });
+    element(by.id('clearbtn')).click();
 
-  it('should not exceed the maximum size of input array', function() {
-    numLimitInput.clear();
-    numLimitInput.sendKeys('100');
-    letterLimitInput.clear();
-    letterLimitInput.sendKeys('100');
-    expect(limitedNumbers.getText()).toEqual('Output numbers: [1,2,3,4,5,6,7,8,9]');
-    expect(limitedLetters.getText()).toEqual('Output letters: abcdefghi');
+    expect(element(by.css('.base-class')).getAttribute('class')).not.
+      toMatch(/my-class/);
   });
 });

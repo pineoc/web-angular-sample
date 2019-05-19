@@ -3,28 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <title>Example - example-example76-debug</title>
-  <link href="app.css" rel="stylesheet" type="text/css">
   
 
   <script src="../../../angular.js"></script>
-  <script src="app.js"></script>
   
 
   
 </head>
-<body ng-app="scopeInheritance">
-    <div class="spicy">
-    <div ng-controller="MainController">
-      <p>Good {{timeOfDay}}, {{name}}!</p>
-
-      <div ng-controller="ChildController">
-        <p>Good {{timeOfDay}}, {{name}}!</p>
-
-        <div ng-controller="GrandChildController">
-          <p>Good {{timeOfDay}}, {{name}}!</p>
-        </div>
-      </div>
+<body ng-app="initExample">
+  <script>
+  angular.module('initExample', [])
+    .controller('ExampleController', ['$scope', function($scope) {
+      $scope.list = [['a', 'b'], ['c', 'd']];
+    }]);
+</script>
+<div ng-controller="ExampleController">
+  <div ng-repeat="innerList in list" ng-init="outerIndex = $index">
+    <div ng-repeat="value in innerList" ng-init="innerIndex = $index">
+       <span class="example-init">list[ {{outerIndex}} ][ {{innerIndex}} ] = {{value}};</span>
     </div>
   </div>
+</div>
 </body>
 </html>

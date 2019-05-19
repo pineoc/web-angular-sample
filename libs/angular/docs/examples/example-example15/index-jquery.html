@@ -5,17 +5,16 @@
   <title>Example - example-example15-jquery</title>
   
 
-  <script src="../../components/jquery-1.10.2/jquery.js"></script>
+  <script src="../../components/jquery-2.1.1/jquery.js"></script>
   <script src="../../../angular.js"></script>
-  <script src="../../../angular-sanitize.js"></script>
   <script src="script.js"></script>
   
 
   
 </head>
-<body ng-app="ngBindHtmlExample">
-    <div ng-controller="ngBindHtmlCtrl">
-   <p ng-bind-html="myHTML"></p>
+<body ng-app="docsTransclusionDirective">
+    <div ng-controller="Controller">
+    <my-dialog>Check out the contents, {{name}}!</my-dialog>
   </div>
 </body>
 </html>

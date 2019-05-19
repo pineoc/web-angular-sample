@@ -5,20 +5,21 @@
   <title>Example - example-ngValue-directive-jquery</title>
   
 
-  <script src="../../components/jquery-1.10.2/jquery.js"></script>
+  <script src="../../components/jquery-2.1.1/jquery.js"></script>
   <script src="../../../angular.js"></script>
   
 
   
 </head>
-<body ng-app="">
+<body ng-app="valueExample">
    <script>
-    function Ctrl($scope) {
-      $scope.names = ['pizza', 'unicorns', 'robots'];
-      $scope.my = { favorite: 'unicorns' };
-    }
+    angular.module('valueExample', [])
+      .controller('ExampleController', ['$scope', function($scope) {
+        $scope.names = ['pizza', 'unicorns', 'robots'];
+        $scope.my = { favorite: 'unicorns' };
+      }]);
  </script>
-  <form ng-controller="Ctrl">
+  <form ng-controller="ExampleController">
     <h2>Which is your favorite?</h2>
       <label ng-repeat="name in names" for="{{name}}">
         {{name}}

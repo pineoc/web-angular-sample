@@ -5,14 +5,14 @@
   <title>Example - example-ngControllerAs-jquery</title>
   
 
-  <script src="../../components/jquery-1.10.2/jquery.js"></script>
+  <script src="../../components/jquery-2.1.1/jquery.js"></script>
   <script src="../../../angular.js"></script>
   <script src="app.js"></script>
   
 
   
 </head>
-<body ng-app="">
+<body ng-app="controllerAsExample">
    <div id="ctrl-as-exmpl" ng-controller="SettingsController1 as settings">
    Name: <input type="text" ng-model="settings.name"/>
    [ <a href="" ng-click="settings.greet()">greet</a> ]<br/>

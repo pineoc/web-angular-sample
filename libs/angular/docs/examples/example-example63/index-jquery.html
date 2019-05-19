@@ -5,24 +5,16 @@
   <title>Example - example-example63-jquery</title>
   
 
-  <script src="../../components/jquery-1.10.2/jquery.js"></script>
+  <script src="../../components/jquery-2.1.1/jquery.js"></script>
   <script src="../../../angular.js"></script>
   
 
   
 </head>
 <body ng-app="">
-    <script>
-    function Ctrl($scope, $window) {
-      $scope.greeting = 'Hello, World!';
-      $scope.doGreeting = function(greeting) {
-          $window.alert(greeting);
-      };
-    }
-  </script>
-  <div ng-controller="Ctrl">
-    <input type="text" ng-model="greeting" />
-    <button ng-click="doGreeting(greeting)">ALERT</button>
-  </div>
+   <button ng-mouseover="count = count + 1" ng-init="count=0">
+   Increment (when mouse is over)
+ </button>
+ count: {{count}}
 </body>
 </html>

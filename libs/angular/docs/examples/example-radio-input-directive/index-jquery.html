@@ -5,23 +5,24 @@
   <title>Example - example-radio-input-directive-jquery</title>
   
 
-  <script src="../../components/jquery-1.10.2/jquery.js"></script>
+  <script src="../../components/jquery-2.1.1/jquery.js"></script>
   <script src="../../../angular.js"></script>
   
 
   
 </head>
-<body ng-app="">
+<body ng-app="radioExample">
    <script>
-   function Ctrl($scope) {
-     $scope.color = 'blue';
-     $scope.specialValue = {
-       "id": "12345",
-       "value": "green"
-     };
-   }
+   angular.module('radioExample', [])
+     .controller('ExampleController', ['$scope', function($scope) {
+       $scope.color = 'blue';
+       $scope.specialValue = {
+         "id": "12345",
+         "value": "green"
+       };
+     }]);
  </script>
- <form name="myForm" ng-controller="Ctrl">
+ <form name="myForm" ng-controller="ExampleController">
    <input type="radio" ng-model="color" value="red">  Red <br/>
    <input type="radio" ng-model="color" ng-value="specialValue"> Green <br/>
    <input type="radio" ng-model="color" value="blue"> Blue <br/>

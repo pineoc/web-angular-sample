@@ -1,15 +1,5 @@
-  angular.module('docsIsolationExample', [])
-    .controller('Controller', ['$scope', function($scope) {
-      $scope.naomi = { name: 'Naomi', address: '1600 Amphitheatre' };
-
-      $scope.vojta = { name: 'Vojta', address: '3456 Somewhere Else' };
-    }])
-    .directive('myCustomer', function() {
-      return {
-        restrict: 'E',
-        scope: {
-          customerInfo: '=info'
-        },
-        templateUrl: 'my-customer-plus-vojta.html'
-      };
-    });
+  angular.module('switchExample', ['ngAnimate'])
+    .controller('ExampleController', ['$scope', function($scope) {
+      $scope.items = ['settings', 'home', 'other'];
+      $scope.selection = $scope.items[0];
+    }]);

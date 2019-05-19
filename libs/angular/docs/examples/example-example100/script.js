@@ -1,21 +1,11 @@
-  angular.module('form-example2', []).directive('contenteditable', function() {
-    return {
-      require: 'ngModel',
-      link: function(scope, elm, attrs, ctrl) {
-        // view -> model
-        elm.on('blur', function() {
-          scope.$apply(function() {
-            ctrl.$setViewValue(elm.html());
-          });
-        });
+var mySceApp = angular.module('mySceApp', ['ngSanitize']);
 
-        // model -> view
-        ctrl.$render = function() {
-          elm.html(ctrl.$viewValue);
-        };
-
-        // load init value from DOM
-        ctrl.$setViewValue(elm.html());
-      }
-    };
+mySceApp.controller("myAppController", function myAppController($http, $templateCache, $sce) {
+  var self = this;
+  $http.get("test_data.json", {cache: $templateCache}).success(function(userComments) {
+    self.userComments = userComments;
   });
+  self.explicitlyTrustedHtml = $sce.trustAsHtml(
+      '<span onmouseover="this.textContent=&quot;Explicitly trusted HTML bypasses ' +
+      'sanitization.&quot;">Hover over this text.</span>');
+});

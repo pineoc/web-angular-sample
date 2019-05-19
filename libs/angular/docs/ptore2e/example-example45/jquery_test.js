@@ -1,20 +1,13 @@
-describe("module:ng.directive:ngSwitch", function() {
+describe("", function() {
+  var rootEl;
   beforeEach(function() {
-    browser.get("./examples/example-example45/index-jquery.html");
+    rootEl = browser.rootEl;
+    browser.get("examples/example-example45/index-jquery.html");
   });
-
-  var switchElem = element(by.css('[ng-switch]'));
-  var select = element(by.model('selection'));
-
-  it('should start in settings', function() {
-    expect(switchElem.getText()).toMatch(/Settings Div/);
-  });
-  it('should change to home', function() {
-    select.element.all(by.css('option')).get(1).click();
-    expect(switchElem.getText()).toMatch(/Home Span/);
-  });
-  it('should select default', function() {
-    select.element.all(by.css('option')).get(2).click();
-    expect(switchElem.getText()).toMatch(/default/);
+  
+  it('should check both checkBoxes', function() {
+    expect(element(by.id('checkSlave')).getAttribute('checked')).toBeFalsy();
+    element(by.model('master')).click();
+    expect(element(by.id('checkSlave')).getAttribute('checked')).toBeTruthy();
   });
 });
