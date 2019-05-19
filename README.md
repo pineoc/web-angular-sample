@@ -1,5 +1,7 @@
 # AngularJS 데모 웹 어플리케이션
 
+@jeado(고재도)님의 저장소를 fork하여 내용을 채워보는 저장소입니다.
+
 ## 라이브러리 버전
 
 | libs         | version |
@@ -37,7 +39,9 @@ $ gulp
 |----------------------|--------------------|
 | index.html           | 사용자 관리 페이지 |
 | router.html          | 라우터 샘플 페이지 |
-| hello.html           | hello 출력 페이지  |
+| hello.html, hello-2.html | hello 출력 페이지  |
 | scope-chat.html      | 채팅 예제 페이지   |
-| form-validation.html | Form 체크 페이지   |
+| form-validation.html | Form 체크(Validation) 페이지   |
 | mobile.html          | 모바일 페이지      |
+| promise-deferred.html | Promise와 Deferred 예제 페이지 |
+
